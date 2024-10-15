@@ -17,19 +17,24 @@ import static java.time.Clock.system;
  */
 public class Arithmetic 
 {
-
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) 
+    public static void main(String[] args)         
     {
        
-        ArithmeticBase r= new ArithmeticBase();
-        Scanner in= new Scanner(System.in);
-        int n= in.nextInt();
-        int m= in.nextInt();
-        double result = r.calculate(m,n);
-        System.out.println("result :" +result); 
+       ArithmeticBase arithmeticBase = new ArithmeticBase();
+       Scanner scanner = new Scanner(System.in);
+       
+        System.out.println("Enter two numbers");
+        double num1 = scanner.nextDouble();
+        double num2 = scanner.nextDouble();
+        
+        System.out.println("Select an operation (PLUS, MINUS, MULTIPLY, DIVIDE): ");
+        ArithmeticBase.Operation operation = ArithmeticBase.Operation.valueOf(scanner.next().toUpperCase());
+        
+        double result = arithmeticBase.calculate(num1, num2, operation);
+        System.out.println("Result: " + result);
     
     }
 }
